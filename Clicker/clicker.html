@@ -4,7 +4,7 @@
   <style>
     body {
       margin: 0;
-      font-family: sans-serif
+      font-family: sans-serif;
       background-color:#DDA0DD;
       text-align: center;
     }
@@ -23,7 +23,8 @@
       cursor: pointer;
     }
     .stats {
-      position: absolute;
+      position: relative;
+      width: 150px;
       top: 10px;
       left: 10px;
       text-align: left;
@@ -35,7 +36,7 @@
       margin: 5px 0;
       border-radius: 5px;
     }
-    .click-button {
+    .clicker__button {
       margin-top: 200px;
       background-color: #9b5cb3;
       color: white;
@@ -55,11 +56,14 @@
     <button>clicker</button>
     <button>top</button>
     <button>login</button>
-  </header>  <div class="stats">
-    <div>level: 0</div>
-    <div>clicks: 0</div>
-    <div>money: 0</div>
-  </div><button class="click-button">Click me!</button>
-
+  </header>  
+  <div class="stats">
+    <div>Clicks: <span id="clicks">0</span></div>
+    <div>Money: <span id="money">0</span></div>
+    <div>Level: <span id="level">1</span></div>
+    <div>Upgrades: <span id="upgrades">0</span></div>
+  </div>
+  <button class="clicker__button">Click me!</button>
+<script src="clicker.js"></script>
 </body>
 </html>
