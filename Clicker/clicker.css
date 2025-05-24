@@ -2,4 +2,47 @@
 body{
     background-image:linear-gradient(rgb(190, 236, 238),rgb(214, 159, 200));
     font-family: "Caveat", cursive;
+    height: 100vmax;
+    width: 100%;
+}
+header {
+    background-color: #8e735a;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+header button {
+    background-color: #d8c6d5;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.stats {
+    position: relative;
+    width: 150px;
+    top: 10px;
+    left: 10px;
+    text-align: left;
+}
+.stats div {
+    background-color: #4a3b2f;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+.clicker__button {
+    display: flex;
+    justify-self: center;
+    margin-top: 200px;
+    background-color: #9b5cb3;
+    color: white;
+    border: none;
+    padding: 30px 60px;
+    font-size: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 5px 5px #4a3b2f;
+    cursor: pointer;
 }
