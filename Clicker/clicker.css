@@ -1,0 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Irish+Grover&family=Lobster&display=swap');
+body{
+    background-image:linear-gradient(rgb(190, 236, 238),rgb(214, 159, 200));
+    font-family: "Caveat", cursive;
+}
