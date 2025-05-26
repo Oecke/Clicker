@@ -28,3 +28,16 @@ const handleClick = () => {
     updateValues();
 }
 clickButton.addEventListener("click", handleClick);
+
+
+
+const button = document.querySelector('.Shrek__button');
+
+if (localStorage.getItem('buttonPressed')) {
+    button.remove()
+}
+
+button.addEventListener('click', () => {
+  localStorage.setItem('buttonPressed', 'true'); 
+  
+});
