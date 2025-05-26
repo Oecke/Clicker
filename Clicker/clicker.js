@@ -1,9 +1,10 @@
-const clickButton = document.querySelector(".clicker__button");
-const clicksValue = document.querySelector("#clicks");
-const moneyValue = document.querySelector("#money");
 
-let clicks = 0;
-let money = parseInt(moneyValue.textContent);
+
+
+
+setTimeout(() => {
+    
+}, 5000);
 
 const updateValues = () => {
     requestAnimationFrame(() => {
@@ -11,6 +12,8 @@ const updateValues = () => {
         moneyValue.textContent = money;
     });
 };
+
+
 
 const handleClick = () => {
     clicks++;

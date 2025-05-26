@@ -59,6 +59,11 @@ header {
     border-radius: 15px;
     box-shadow: 5px 5px #4a3b2f;
     cursor: pointer;
+    
+}
+.clicker__button:active{
+    padding: 60px 80px;
+    
 }
 .Shrek__button{
     position: absolute;

@@ -59,14 +59,27 @@
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcdJnzKY6h_kpD0nMiL9aXupLHvlfKg00yzexsU3CCAKKvofeknfvE5G_VP65YI6qglAs&usqp=CAU" alt="Shrek" style="width: 100%; height: auto;">
         <audio src="Shrek.mp3" id="sound"></audio>
     </div>
+    <div class="stats">
+        <div>Clicks: <span id="clicks">0</span></div>
+        <div>Money: <span id="money">0</span></div>
+        <div>Level: <span id="level">1</span></div>
+        <div>Upgrades: <span id="upgrades">0</span></div>
+    </div>
+    <script src = "/Clicker/Values.js"></script>
     <script>
+        
+
         document.querySelector('.a').addEventListener("click", function() {
             document.querySelector(".a").style.display = "none";
             document.querySelector(".Shrek__container").style.display = "flex";
-            const sound = document.getElementById("sound");
-            sound.play();
+            document.getElementById("sound").play();
+            money += 1000;
+            lvl -=100;
+            moneyValue.textContent = money;
+            console.log("Money:", money, "Level:", level);
         });
     </script>
+
 
 
 </body>
