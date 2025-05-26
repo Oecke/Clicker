@@ -65,19 +65,15 @@
         <div>Level: <span id="level">1</span></div>
         <div>Upgrades: <span id="upgrades">0</span></div>
     </div>
-    <script src = "/Clicker/Values.js"></script>
-    <script>
-        
+    
+    <script type="module">
+        import addMoney from "/Clicker/Values.js"
 
         document.querySelector('.a').addEventListener("click", function() {
             document.querySelector(".a").style.display = "none";
             document.querySelector(".Shrek__container").style.display = "flex";
             document.getElementById("sound").play();
-            let UpdateMoney = MoneyStorage.getItem('Money')
-            UpdateMoney +=1000;
-            lvl -=100;
-            moneyValue.textContent = money;
-            console.log("Money:", money, "Level:", level);
+            addMoney(500)
         });
     </script>
 

@@ -1,10 +1,14 @@
-const clickButton = document.querySelector(".clicker__button");
-const clicksValue = document.querySelector("#clicks");
-const moneyValue = document.querySelector("#money");
-const lvlValue = document.querySelector("#level")
+if (!localStorage.getItem('money')) {
+    localStorage.setItem('money', '1000'); 
+}
 
-let clicks = 0;
-let money = 0;
-let lvl = 5000
 
-let MoneyStorage = localStorage.setItem("Money", money)
+function addMoney(amount) {
+    const currentMoney = parseInt(localStorage.getItem('money')) || 0;
+    const newMoney = currentMoney + amount;
+    localStorage.setItem('money', newMoney.toString());
+    console.log(`Новый баланс: ${newMoney}`);
+    return newMoney;
+}
+export default addMoney
+
