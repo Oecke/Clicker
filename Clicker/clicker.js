@@ -9,10 +9,6 @@ let lvl = 5000
 
 
 
-setTimeout(() => {
-    
-}, 5000);
-
 const updateValues = () => {
     requestAnimationFrame(() => {
         clicksValue.textContent = clicks;
@@ -20,16 +16,19 @@ const updateValues = () => {
     });
 };
 
-
+//Update Values
 
 const handleClick = () => {
     clicks++;
     money += 1;
     updateValues();
 }
-clickButton.addEventListener("click", handleClick);
+setTimeout(() => {
+    clickButton.addEventListener("click", handleClick);
+}, 5000);
 
 
+//remove Posholko
 
 const button = document.querySelector('.Shrek__button');
 
