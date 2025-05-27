@@ -26,7 +26,7 @@ const updateValues = () => {
 const AnimeButton = () => {
     anime({
         targets: clickButton,  
-        scale: [0.1, 0, 1],
+        scale: [0.3-0, 1],
         delay: 0,
                 
         duration: 2000, 
@@ -45,8 +45,21 @@ clickButton.onclick = function() {
   if (this.proc) return false;
   this.proc = true;
     handleClick();
+    anime({
+        targets: clickButton,
+        backgroundColor: '#ff0000',
+        duration: 1000,
+        easing: 'easeInOutQuad',
+
+    });
   setTimeout(() => {
     this.proc = false;
+    anime({
+        targets: clickButton,
+        backgroundColor: '#9b5cb3',
+        duration: 500,
+        easing: 'easeInOutQuad',
+    });
   }, lvl);
 };
 
