@@ -23,22 +23,12 @@ const updateValues = () => {
     });
 };
 
-const AnimeButton = () => {
-    anime({
-        targets: clickButton,  
-        scale: [0.3-0, 1],
-        delay: 0,
-                
-        duration: 2000, 
-        easing: 'easeInOutQuad'  
-    })
-}
+
 
 const handleClick = () => {
     clicks = addClicks(1);
     money = addMoney(1);
     updateValues();
-    AnimeButton();
 }
 
 clickButton.onclick = function() {
