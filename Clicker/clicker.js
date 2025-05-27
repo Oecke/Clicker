@@ -1,13 +1,16 @@
+import {addClicks, addMoney} from "./Values.js";
+
 const clickButton = document.querySelector(".clicker__button");
 const clicksValue = document.querySelector("#clicks");
 const moneyValue = document.querySelector("#money");
 const lvlValue = document.querySelector("#level")
 
-let clicks = 0;
+let clicks = parseInt(localStorage.getItem('clicks')) || 0;
 let money = parseInt(localStorage.getItem('money')) || 0;
 let lvl = 5000
 
-
+clicksValue.textContent = clicks;
+moneyValue.textContent = money;
 
 const updateValues = () => {
     requestAnimationFrame(() => {
@@ -16,19 +19,17 @@ const updateValues = () => {
     });
 };
 
-//Update Values
+
 
 const handleClick = () => {
-    clicks++;
-    money += 1;
+    addClicks(1);
+    addMoney(1);
     updateValues();
 }
-setTimeout(() => {
-    clickButton.addEventListener("click", handleClick);
-}, 5000);
+
+clickButton.addEventListener("click", handleClick);
 
 
-//remove Posholko
 
 const button = document.querySelector('.Shrek__button');
 
