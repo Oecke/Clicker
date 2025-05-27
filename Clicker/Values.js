@@ -6,6 +6,8 @@ if (!localStorage.getItem('clicks')) {
     localStorage.setItem('clicks', '1');
 }
 
+
+
 export const addClicks = (amount) => {
     const currentClicks = parseInt(localStorage.getItem('clicks')) || 0;
     const newClicks = currentClicks + amount;

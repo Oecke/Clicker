@@ -22,8 +22,8 @@ const updateValues = () => {
 
 
 const handleClick = () => {
-    addClicks(1);
-    addMoney(1);
+    clicks = addClicks(1);
+    money = addMoney(1);
     updateValues();
 }
 
@@ -39,5 +39,4 @@ if (localStorage.getItem('buttonPressed')) {
 
 button.addEventListener('click', () => {
   localStorage.setItem('buttonPressed', 'true'); 
-  
 });
