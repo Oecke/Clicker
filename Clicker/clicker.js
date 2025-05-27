@@ -1,13 +1,17 @@
 import {addClicks, addMoney} from "./Values.js";
 
 const clickButton = document.querySelector(".clicker__button");
+const CliCkButtonTimer = document.querySelector(".clicker__button-timer");
+
 const clicksValue = document.querySelector("#clicks");
 const moneyValue = document.querySelector("#money");
 const lvlValue = document.querySelector("#level")
 
 let clicks = parseInt(localStorage.getItem('clicks')) || 0;
 let money = parseInt(localStorage.getItem('money')) || 0;
+
 let lvl = 5000
+CliCkButtonTimer.textContent = "You need " + lvl / 1000 + " seconds to click again";
 
 clicksValue.textContent = clicks;
 moneyValue.textContent = money;
@@ -19,17 +23,32 @@ const updateValues = () => {
     });
 };
 
-
+const AnimeButton = () => {
+    anime({
+        targets: clickButton,  
+        scale: [0.1, 0, 1],
+        delay: 0,
+                
+        duration: 2000, 
+        easing: 'easeInOutQuad'  
+    })
+}
 
 const handleClick = () => {
     clicks = addClicks(1);
     money = addMoney(1);
     updateValues();
+    AnimeButton();
 }
 
-clickButton.addEventListener("click", handleClick);
-
-
+clickButton.onclick = function() {
+  if (this.proc) return false;
+  this.proc = true;
+    handleClick();
+  setTimeout(() => {
+    this.proc = false;
+  }, lvl);
+};
 
 const button = document.querySelector('.Shrek__button');
 

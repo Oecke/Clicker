@@ -47,6 +47,13 @@ header {
     margin: 5px 0;
     border-radius: 5px;
 }
+.clicker__button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
 .clicker__button {
     display: flex;
     justify-self: center;
@@ -54,17 +61,17 @@ header {
     background-color: #9b5cb3;
     color: white;
     border: none;
-    padding: 30px 60px;
+    width: 300px;
+    height: 100px;
     font-size: 1.5rem;
     border-radius: 15px;
     box-shadow: 5px 5px #4a3b2f;
     cursor: pointer;
+
     
 }
-.clicker__button:active{
-    padding: 60px 80px;
-    
-}
+
+
 .Shrek__button{
     position: absolute;
     bottom: 0px;
