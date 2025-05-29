@@ -18,7 +18,7 @@ const addMoney = (amount) => {
 }
 
 
-const handleUpgradeClick = (event) => {
+const handleUpgradeClick = () => {
     if(localStorage.getItem('money') < UpdateCost()) {
         alert("Not enough money to upgrade!");
         return;
@@ -31,6 +31,7 @@ const handleUpgradeClick = (event) => {
     }
     console.log(`Upgrade Level: ${CurrectUpgrade + 1}`);
     console.log(`Upgrade Cost: ${UpdateCost()}`);
+    window.location.reload();
 };
 
 
