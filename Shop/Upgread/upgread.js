@@ -26,7 +26,8 @@ const handleUpgradeClick = () => {
         addMoney(-UpdateCost());
         localStorage.setItem('Upgrade', (CurrectUpgrade + 1).toString());
         alert(`Upgrade successful! Current Upgrade Level: ${CurrectUpgrade + 1}`);
-        localStorage.setItem('money', '2');
+        const currentMoney = parseInt(localStorage.getItem('money')) || 0;
+        localStorage.setItem('money', currentMoney + 1);
         
     }
     console.log(`Upgrade Level: ${CurrectUpgrade + 1}`);

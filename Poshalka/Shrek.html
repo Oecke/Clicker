@@ -75,6 +75,14 @@
             document.getElementById("sound").play();
             addMoney(500)
 
+            const clicksValue = document.querySelector("#clicks");
+            const moneyValue = document.querySelector("#money");
+
+            let clicks = parseInt(localStorage.getItem('clicks')) || 0;
+            let money = parseInt(localStorage.getItem('money')) || 0;
+
+            clicksValue.textContent = clicks;
+            moneyValue.textContent = money;
         });
     </script>
 
