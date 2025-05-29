@@ -23,7 +23,14 @@ const updateValues = () => {
     });
 };
 
-
+const updateLevel = () => {
+  lvl = lvl - (clicks / 100)
+  if (lvl <= 0) {
+    lvl = 5000;
+  }
+  console.log(`Current Level: ${lvl}`);
+  return lvl; 
+}
 
 const handleClick = () => {
     clicks = addClicks(1);
@@ -50,7 +57,7 @@ clickButton.onclick = function() {
         duration: 500,
         easing: 'easeInOutQuad',
     });
-  }, lvl);
+  }, updateLevel());
 };
 
 const button = document.querySelector('.Shrek__button');
