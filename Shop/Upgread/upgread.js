@@ -1,8 +1,6 @@
-if (!localStorage.getItem('Upgrade')) {
-    localStorage.setItem('Upgrade', '1');
-}
 
 const CurrectUpgrade = parseInt(localStorage.getItem('Upgrade')) || 0;
+
 
 const UpdateCost = () => {  
     const NewCosrt  = 100 * (CurrectUpgrade + 1);

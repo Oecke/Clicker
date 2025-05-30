@@ -9,9 +9,30 @@ const lvlValue = document.querySelector("#level")
 
 let clicks = parseInt(localStorage.getItem('clicks')) || 0;
 let money = parseInt(localStorage.getItem('money')) || 0;
+let currentUpgrade = parseInt(localStorage.getItem('Upgrade')) || 0;
+let lvl = parseInt(localStorage.getItem('lvl')) || 0;
 
-let lvl = 5000
-CliCkButtonTimer.textContent = "You need " + lvl / 1000 + " seconds to click again";
+const everyTenClicks = () => {
+  if (clicks % 10 === 0 && clicks <= 100) {
+    lvlValue.textContent = 1
+  } else {
+    
+  }
+}
+
+const Level = () => {
+  while (lvl <= 0) {
+    if (lvl <= 4000) {
+      everyTenClicks();
+    } else if (lvl <= 2000) {
+      everyFiveClicks();
+    } else {
+      everyClick();
+    }
+  }
+}
+
+CliCkButtonTimer.textContent = "You need " + lvl  + " ms to click again";
 
 clicksValue.textContent = clicks;
 moneyValue.textContent = money;
@@ -34,7 +55,7 @@ const updateLevel = () => {
 
 const handleClick = () => {
     clicks = addClicks(1);
-    money = addMoney(1);
+    money = addMoney(currentUpgrade + 1);
     updateValues();
 }
 

@@ -6,6 +6,13 @@ if (!localStorage.getItem('clicks')) {
     localStorage.setItem('clicks', '1');
 }
 
+if (!localStorage.getItem('Upgrade')) {
+    localStorage.setItem('Upgrade', '0');
+}
+
+if (!localStorage.getItem('lvl')) {
+    localStorage.setItem('lvl', '5000');
+}
 
 
 export const addClicks = (amount) => {
