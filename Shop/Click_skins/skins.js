@@ -5,11 +5,32 @@ const ArnoldCost = document.querySelector("#ArnoldCost");
 const BetmanCost = document.querySelector("#BetmanCost");
 const SkebedeCost = document.querySelector("#SkebedeCost");
 
+ShrekCost.textContent = 1000;
+ArnoldCost.textContent = 2000;
+BetmanCost.textContent = 3000;
+SkebedeCost.textContent = 4000;
+
+if (localStorage.getItem('Betman') === 'true') {
+    BetmanCost.textContent = "You already have Betman skin!";
+}
+
+if (localStorage.getItem('Arnold') === 'true') {
+    ArnoldCost.textContent = "You already have Arnold skin!";
+}
+
+if (localStorage.getItem('Shrek') === 'true') {
+    ShrekCost.textContent = "You already have Shrek skin!";
+}
+
+if (localStorage.getItem('Skebede') === 'true') {
+    SkebedeCost.textContent = "You already have Skebede skin!";
+}
+
 let Money = parseInt(localStorage.getItem('money')) || 0;
 
 const BuyShrek = () => {
-    if (Money >= 1000){
-        addMoney(-1000);
+    if (Money >= 1000 && localStorage.getItem('Shrek') !== 'true'){
+        addMoney(-ShrekCost.textContent);
         localStorage.setItem('Shrek', 'true');
         alert("You have bought Shrek skin!");
     } else {
@@ -18,8 +39,8 @@ const BuyShrek = () => {
 }
 
 const BuyArnold = () => {
-    if (Money >= 2000){
-        addMoney(-2000);
+    if (Money >= 2000 && localStorage.getItem('Arnold') !== 'true'){
+        addMoney(-ArnoldCost.textContent);
         localStorage.setItem('Arnold', 'true');
         alert("You have bought Arnold skin!");
     } else {
@@ -28,8 +49,8 @@ const BuyArnold = () => {
 }
 
 const BuyBetman = () => {
-    if (Money >= 3000){
-        addMoney(-3000);
+    if (Money >= 3000 && localStorage.getItem('Betman') !== 'true'){
+        addMoney(-BetmanCost.textContent);
         localStorage.setItem('Betman', 'true');
         alert("You have bought Betman skin!");
     } else {
@@ -38,8 +59,8 @@ const BuyBetman = () => {
 }
 
 const BuySkebede = () => {
-    if (Money >= 4000){
-        addMoney(-4000);
+    if (Money >= 4000 && localStorage.getItem('Skebede') !== 'true'){
+        addMoney(-SkebedeCost.textContent);
         localStorage.setItem('Skebede', 'true');
         alert("You have bought Skebede skin!");
     } else {

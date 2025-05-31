@@ -46,6 +46,7 @@ const handleClick = () => {
     Level();
     lvl = updateLevel();
     CliCkButtonTimer.textContent = "You need " + lvl + " ms to click again";
+    
 }
 
 clickButton.onclick = function() {
