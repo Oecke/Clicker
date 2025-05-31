@@ -1,4 +1,4 @@
-import {addClicks, addMoney} from "./Values.js";
+import {addClicks, addMoney, addLevel} from "./Values.js";
 
 const clickButton = document.querySelector(".clicker__button");
 const CliCkButtonTimer = document.querySelector(".clicker__button-timer");
@@ -11,28 +11,12 @@ let clicks = parseInt(localStorage.getItem('clicks')) || 0;
 let money = parseInt(localStorage.getItem('money')) || 0;
 let currentUpgrade = parseInt(localStorage.getItem('Upgrade')) || 0;
 let lvl = parseInt(localStorage.getItem('lvl'));
-if (isNaN(lvl) || lvl <= 0) {
-  lvl = 5000;
-  localStorage.setItem('lvl', lvl.toString());
-}
-
-const everyTenClicks = () => {
-  if (clicks % 10 === 0 && clicks <= 100) {
-    lvlValue.textContent = 1
-  } else {
-    
-  }
-}
+lvlValue.textContent = parseInt(localStorage.getItem('lvlValue'));
 
 const Level = () => {
-  while (lvl <= 0) {
-    if (lvl <= 4000) {
-      everyTenClicks();
-    } else if (lvl <= 2000) {
-      everyFiveClicks();
-    } else {
-      everyClick();
-    }
+  if (clicks % 10 === 0) {
+    lvlValue.textContent = parseInt(localStorage.getItem('lvlValue') || 0) + 1;
+    addLevel(1);
   }
 }
 
@@ -50,9 +34,6 @@ const updateValues = () => {
 
 const updateLevel = () => {
   lvl = lvl - (clicks / 100);
-  if (lvl <= 0) {
-    lvl = 5000;
-  }
   localStorage.setItem('lvl', lvl.toString());
   console.log(`Current Level: ${lvl}`);
   return lvl; 
@@ -62,8 +43,8 @@ const handleClick = () => {
     clicks = addClicks(1);
     money = addMoney(currentUpgrade + 1);
     updateValues();
+    Level();
     lvl = updateLevel();
-    lvlValue.textContent = lvl;
     CliCkButtonTimer.textContent = "You need " + lvl + " ms to click again";
 }
 
@@ -74,7 +55,7 @@ clickButton.onclick = function() {
     anime({
         targets: clickButton,
         backgroundColor: '#ff0000',
-        duration: 1000,
+        duration: 100,
         easing: 'easeInOutQuad',
 
     });
@@ -83,7 +64,7 @@ clickButton.onclick = function() {
     anime({
         targets: clickButton,
         backgroundColor: '#9b5cb3',
-        duration: 500,
+        duration: 100,
         easing: 'easeInOutQuad',
     });
   }, updateLevel());

@@ -14,6 +14,17 @@ if (!localStorage.getItem('lvl')) {
     localStorage.setItem('lvl', '5000');
 }
 
+if (!localStorage.getItem('lvlValue')) {
+    localStorage.setItem('lvlValue', '1');
+}
+
+export const addLevel = (amount) => {
+    const currentLevel = parseInt(localStorage.getItem('lvlValue')) || 0;
+    const newLevel = currentLevel + amount;
+    localStorage.setItem('lvlValue', newLevel.toString());
+    console.log(`Новий рівень: ${newLevel}`);
+    return newLevel;
+}
 
 export const addClicks = (amount) => {
     const currentClicks = parseInt(localStorage.getItem('clicks')) || 0;
