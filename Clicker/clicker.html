@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="clicker.css">
-
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body>
   <header>
@@ -19,7 +21,9 @@
     <div>Clicks: <span id="clicks"></span></div>
     <div>Money: <span id="money"></span></div>
     <div>Level: <span id="level">1</span></div>
-    
+    <div class="skins__button">
+      <h1>skins</h1>
+    </div>
   </div>
   <div class="clicker__button-container">
     <button class="clicker__button">Click me!</button>
@@ -29,5 +33,6 @@
   
 <script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js'></script>
 <script src="clicker.js" type="module"></script>
+<script src="clickSkins.js" type="text/babel"></script>
 </body>
 </html>

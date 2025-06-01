@@ -59,7 +59,7 @@ const BuyBetman = () => {
 }
 
 const BuySkebede = () => {
-    if (Money >= 4000 && localStorage.getItem('Skebede') !== 'true'){
+    if (Money >= 4000 && localStorage.getItem('Skebede') !== 'true'){кв
         addMoney(-SkebedeCost.textContent);
         localStorage.setItem('Skebede', 'true');
         alert("You have bought Skebede skin!");
