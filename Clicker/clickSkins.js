@@ -1,4 +1,4 @@
-const SkinsButton = document.querySelector("skinsButton");
+const SkinsButton = document.querySelector(".skins__button");
 
 
 const SkinsMenu = () => {
@@ -7,6 +7,9 @@ const SkinsMenu = () => {
             <div className="Shrekskin__container">
                 <h2>Shrek skin!</h2>
                 <HaveShrek />
+                <HaveBetman />
+                <Havearnold />
+                <HaveSkebede />
             </div>
         </div>
     )
@@ -52,6 +55,17 @@ const HaveSkebede = () => {
         );
     }
 }
+let TF = true;
+SkinsButton.addEventListener("click", () => {
+    if (TF === true) {
+        const root = ReactDOM.createRoot(SkinsButton);
+        root.render(<SkinsMenu />);
+        TF = false;
+    } else {
+        const root = ReactDOM.createRoot(SkinsButton);
+        root.render(null);
+        TF = true;
+    }
+}
+);
 
-const root = ReactDOM.createRoot(SkinsButton);
-root.render(<SkinsMenu />);
