@@ -22,6 +22,10 @@ if (!localStorage.getItem('CurrentSkin')) {
     localStorage.setItem('CurrentSkin', 'default');
 }
 
+if (!localStorage.getItem('AutoClick')) {
+    localStorage.setItem('AutoClick', '0');
+}
+
 export const addLevel = (amount) => {
     const currentLevel = parseInt(localStorage.getItem('lvlValue')) || 0;
     const newLevel = currentLevel + amount;
