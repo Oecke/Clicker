@@ -18,6 +18,10 @@ if (!localStorage.getItem('lvlValue')) {
     localStorage.setItem('lvlValue', '1');
 }
 
+if (!localStorage.getItem('CurrentSkin')) {
+    localStorage.setItem('CurrentSkin', 'default');
+}
+
 export const addLevel = (amount) => {
     const currentLevel = parseInt(localStorage.getItem('lvlValue')) || 0;
     const newLevel = currentLevel + amount;

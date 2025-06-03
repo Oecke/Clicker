@@ -1,5 +1,6 @@
 const SkinsButton = document.querySelector(".skins__button");
 
+let CurrectSkin = localStorage.getItem('CurrentSkin') || 'default';
 
 const SkinsMenu = () => {
     return(
@@ -20,7 +21,7 @@ const HaveShrek = () => {
     if (localStorage.getItem('Shrek') === 'true') {
         return (
             <div className="Shrekskin__container">
-                <h2>You already have Shrek skin!</h2>
+                <button className="SetSkinButton" onClick={() => SetSkin('Shrek')}>Set Shrek</button>
             </div>
         );
     }
@@ -30,7 +31,7 @@ const Havearnold = () => {
     if (localStorage.getItem('Arnold') === 'true') {
         return (
             <div className="Arnoldskin__container">
-                <h2>You already have Arnold skin!</h2>
+                <button className="SetSkinButton" onClick={() => SetSkin('Arnold')}>Set Arnold</button>
             </div>
         );
     }
@@ -40,7 +41,7 @@ const HaveBetman = () => {
     if (localStorage.getItem('Betman') === 'true') {
         return (
             <div className="Betmanskin__container">
-                <h2>You already have Betman skin!</h2>
+                <button className="SetSkinButton" onClick={() => SetSkin('Betman')}>Set Betman</button>
             </div>
         );
     }
@@ -50,7 +51,7 @@ const HaveSkebede = () => {
     if (localStorage.getItem('Skebede') === 'true') {
         return (
             <div className="Skebedeskin__container">
-                <h2>You already have Skebede skin!</h2>
+                <button className="SetSkinButton" onClick={() => SetSkin('Skebede')}>Set Skebede</button>
             </div>
         );
     }
@@ -69,3 +70,11 @@ SkinsButton.addEventListener("click", () => {
 }
 );
 
+const SetSkin = (skin) => {
+    localStorage.setItem('CurrentSkin', skin);
+    const CLickButton = document.querySelector(".clicker__button");
+    CLickButton.style.backgroundImage = `url(/Images/${skin}.png)`;
+    CLickButton.style.backgroundSize = "100px 100px";
+    CLickButton.style.backgroundPosition = "center";
+    CLickButton.style.backgroundRepeat = "no-repeat";
+}
