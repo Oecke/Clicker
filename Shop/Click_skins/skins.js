@@ -22,7 +22,7 @@ if (localStorage.getItem('Shrek') === 'true') {
     ShrekCost.textContent = "You already have Shrek skin!";
 }
 
-if (localStorage.getItem('Skebede') === 'true') {
+if (localStorage.getItem('Skibide') === 'true') {
     SkebedeCost.textContent = "You already have Skebede skin!";
 }
 
@@ -59,9 +59,9 @@ const BuyBetman = () => {
 }
 
 const BuySkebede = () => {
-    if (Money >= 4000 && localStorage.getItem('Skebede') !== 'true'){кв
+    if (Money >= 4000 && localStorage.getItem('Skibide') !== 'true'){
         addMoney(-SkebedeCost.textContent);
-        localStorage.setItem('Skebede', 'true');
+        localStorage.setItem('Skibide', 'true');
         alert("You have bought Skebede skin!");
     } else {
         alert("You don't have enough money to buy Skebede skin!");

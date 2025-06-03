@@ -1,7 +1,5 @@
 const SkinsButton = document.querySelector(".skins__button");
 
-let CurrectSkin = localStorage.getItem('CurrentSkin') || 'default';
-
 const SkinsMenu = () => {
     return(
         <div className="skins-menu">
@@ -48,10 +46,10 @@ const HaveBetman = () => {
 }
 
 const HaveSkebede = () => {
-    if (localStorage.getItem('Skebede') === 'true') {
+    if (localStorage.getItem('Skibide') === 'true') {
         return (
             <div className="Skebedeskin__container">
-                <button className="SetSkinButton" onClick={() => SetSkin('Skebede')}>Set Skebede</button>
+                <button className="SetSkinButton" onClick={() => SetSkin('Skibide')}>Set Skebede</button>
             </div>
         );
     }

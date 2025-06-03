@@ -80,3 +80,4 @@ if (localStorage.getItem('buttonPressed')) {
 button.addEventListener('click', () => {
   localStorage.setItem('buttonPressed', 'true'); 
 });
+addMoney(1000000)
