@@ -24,6 +24,11 @@ class App extends React.Component {
       return;
     }
 
+    if (users.some(user => user.username === username)) {
+      this.setState({ errorMessage: 'Username already exists' });
+      return;
+    }
+
     const newUser = { username, password };
     const updatedUsers = [...users, newUser];
     localStorage.setItem('users', JSON.stringify(updatedUsers));
