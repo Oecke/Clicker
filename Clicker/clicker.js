@@ -1,7 +1,10 @@
 import {addClicks, addMoney, addLevel} from "./Values.js";
 
 const clickButton = document.querySelector(".clicker__button");
+const SuperClickButton = document.querySelector(".SuperClicker__button");
+
 const CliCkButtonTimer = document.querySelector(".clicker__button-timer");
+const SuperClickButtonTimer = document.querySelector(".SuperClicker__button-timer");
 
 const clicksValue = document.querySelector("#clicks");
 const moneyValue = document.querySelector("#money");
@@ -20,6 +23,8 @@ const Level = () => {
   }
 }
 
+const SupreClickTimeOut = 100000;
+
 CliCkButtonTimer.textContent = "You need " + lvl  + " ms to click again";
 
 clicksValue.textContent = clicks;
@@ -37,6 +42,15 @@ const updateLevel = () => {
   localStorage.setItem('lvl', lvl.toString());
   console.log(`Current Level: ${lvl}`);
   return lvl; 
+}
+
+const handleSuperClick = () => {
+    clicks = addClicks(10);
+    money = addMoney(currentUpgrade * 10);
+    updateValues();
+    Level();
+    
+    SuperClickButtonTimer.textContent = "You need " + SupreClickTimeOut + " ms to click again";
 }
 
 const handleClick = () => {
@@ -71,6 +85,29 @@ clickButton.onclick = function() {
   }, updateLevel());
 };
 
+SuperClickButton.onclick = function() {
+  if (this.proc) return false;
+  this.proc = true;
+    handleSuperClick();
+    anime({
+        targets: SuperClickButton,
+        backgroundColor: '#ff0000',
+        duration: 100,
+        easing: 'easeInOutQuad',
+
+    });
+  setTimeout(() => {
+    this.proc = false;
+    anime({
+        targets: SuperClickButton,
+        backgroundColor: '#9b5cb3',
+        duration: 100,
+        easing: 'easeInOutQuad',
+    });
+  }, SupreClickTimeOut);
+};
+
+
 const button = document.querySelector('.Shrek__button');
 
 if (localStorage.getItem('buttonPressed')) {
@@ -80,4 +117,3 @@ if (localStorage.getItem('buttonPressed')) {
 button.addEventListener('click', () => {
   localStorage.setItem('buttonPressed', 'true'); 
 });
-addMoney(1000000)
