@@ -1,34 +1,75 @@
-let UserList = [
-    {
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    const savedUsers = JSON.parse(localStorage.getItem('users')) || [];
+    this.state = {
+      users: savedUsers,
+      username: '',
+      password: '',
+      confirmPassword: '',
+      errorMessage: ''
+    };
+  }
 
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { username, password, confirmPassword, users } = this.state;
+
+    if (password !== confirmPassword) {
+      this.setState({ errorMessage: 'Passwords do not match' });
+      return;
     }
-]
 
-const Login = (username, password) => {
+    const newUser = { username, password };
+    const updatedUsers = [...users, newUser];
+    localStorage.setItem('users', JSON.stringify(updatedUsers));
+    this.setState({
+      users: updatedUsers,
+      username: '',
+      password: '',
+      confirmPassword: '',
+      errorMessage: ''
+    });
+  };
+
+  render() {
+    const { username, password, confirmPassword, errorMessage, users } = this.state;
+
     return (
-        <div>
-            <h1>Login</h1>
-            <form onSubmit={(e) => {
-                e.preventDefault();
-                const user = UserList.find(user => user.username === username && user.password === password);
-                if (user) {
-                    localStorage.setItem('username', username);
-                    alert('Login successful!');
-                    window.location.reload();
-                } else {
-                    alert('Invalid username or password');
-                }
-            }}>
-                <input type="text" placeholder="Username" value={username} onChange={(e) => username = e.target.value} required />
-                <input type="password" placeholder="Password" value={password} onChange={(e) => password = e.target.value} required />
-                <button type="submit">Login</button>
-            </form>
-        </div>
-    )
+      <div>
+        <h2>Add User</h2>
+        <form onSubmit={this.handleSubmit}>
+          <div>
+            <label>Username:</label>
+            <input type="text" name="username" value={username} onChange={this.handleChange} required />
+          </div>
+          <div>
+            <label>Password:</label>
+            <input type="password" name="password" value={password} onChange={this.handleChange} required />
+          </div>
+          <div>
+            <label>Confirm Password:</label>
+            <input type="password" name="confirmPassword" value={confirmPassword} onChange={this.handleChange} required />
+          </div>
+          {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+          <button type="submit">Add User</button>
+        </form>
+        <h2>Users List</h2>
+        <ul>
+          {users.map((user, index) => (
+            <li key={index}>{user.username}</li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
 }
 
-const rootElement = document.querySelector("body");
-const root = ReactDOM.createRoot(rootElement);
-root.render(
-    <Login />
-)
+ReactDOM.render(
+  <App />,
+  document.querySelector('body')
+);
