@@ -5,6 +5,7 @@ const SuperClickButton = document.querySelector(".SuperClicker__button");
 
 const CliCkButtonTimer = document.querySelector(".clicker__button-timer");
 const SuperClickButtonTimer = document.querySelector(".SuperClicker__button-timer");
+const AutoClickerButton = document.querySelector(".AutoClicker__button");
 
 const clicksValue = document.querySelector("#clicks");
 const moneyValue = document.querySelector("#money");
@@ -14,7 +15,8 @@ let clicks = parseInt(localStorage.getItem('clicks')) || 0;
 let money = parseInt(localStorage.getItem('money')) || 0;
 let currentUpgrade = parseInt(localStorage.getItem('Upgrade')) || 0;
 let lvl = parseInt(localStorage.getItem('lvl'));
-lvlValue.textContent = parseInt(localStorage.getItem('lvlValue'));
+
+
 
 const Level = () => {
   if (clicks % 10 === 0) {
@@ -25,10 +27,14 @@ const Level = () => {
 
 const SupreClickTimeOut = 100000;
 
+lvlValue.textContent = parseInt(localStorage.getItem('lvlValue'));
 CliCkButtonTimer.textContent = "You need " + lvl  + " ms to click again";
+SuperClickButtonTimer.textContent = "You need " + SupreClickTimeOut + " ms to click again";
 
 clicksValue.textContent = clicks;
 moneyValue.textContent = money;
+
+//Update values
 
 const updateValues = () => {
     requestAnimationFrame(() => {
@@ -37,12 +43,14 @@ const updateValues = () => {
     });
 };
 
-const updateLevel = () => {
+const upradeLevel = () => {
   lvl = lvl - (clicks / 100);
   localStorage.setItem('lvl', lvl.toString());
   console.log(`Current Level: ${lvl}`);
   return lvl; 
 }
+
+//Click and SuperClick
 
 const handleSuperClick = () => {
     clicks = addClicks(10);
@@ -58,10 +66,34 @@ const handleClick = () => {
     money = addMoney(currentUpgrade + 1);
     updateValues();
     Level();
-    lvl = updateLevel();
+    lvl = upradeLevel();
     CliCkButtonTimer.textContent = "You need " + lvl + " ms to click again";
     
 }
+
+//Autoclicker
+
+let autoClickerInterval = parseInt(localStorage.getItem('AutoClicker')) || 0;
+
+const AutoClicker = () => {
+  if (localStorage.getItem('AutoClicker') != '0') {
+    
+    setInterval(() => {
+        if (clicks >= 10) {
+            clicks = addClicks(1);
+            money = addMoney(autoClickerInterval + 1);
+            updateValues();
+            Level();
+            lvl = upradeLevel();
+           
+        }
+    }, 5000 - (autoClickerInterval * 10));
+  } else {
+    alert("AutoClicker is disabled");
+  }
+}
+
+
 
 clickButton.onclick = function() {
   if (this.proc) return false;
@@ -82,7 +114,7 @@ clickButton.onclick = function() {
         duration: 100,
         easing: 'easeInOutQuad',
     });
-  }, updateLevel());
+  }, upradeLevel());
 };
 
 SuperClickButton.onclick = function() {
@@ -106,8 +138,16 @@ SuperClickButton.onclick = function() {
     });
   }, SupreClickTimeOut);
 };
-
-
+let x = 0
+AutoClickerButton.onclick = () => {
+  if ( x === 0 ) {
+    AutoClicker();
+    x++;
+    console.log(x);
+  } else {
+    alert("AutoClicker is already enabled");
+  }
+};
 const button = document.querySelector('.Shrek__button');
 
 if (localStorage.getItem('buttonPressed')) {
@@ -117,3 +157,4 @@ if (localStorage.getItem('buttonPressed')) {
 button.addEventListener('click', () => {
   localStorage.setItem('buttonPressed', 'true'); 
 });
+
