@@ -34,7 +34,7 @@ SuperClickButtonTimer.textContent = "You need " + SupreClickTimeOut + " ms to cl
 clicksValue.textContent = clicks;
 moneyValue.textContent = money;
 
-//Update values
+
 
 const updateValues = () => {
     requestAnimationFrame(() => {
@@ -50,7 +50,7 @@ const upradeLevel = () => {
   return lvl; 
 }
 
-//Click and SuperClick
+
 
 const handleSuperClick = () => {
     clicks = addClicks(10);
@@ -71,7 +71,7 @@ const handleClick = () => {
     
 }
 
-//Autoclicker
+
 
 let autoClickerInterval = parseInt(localStorage.getItem('AutoClicker')) || 0;
 
