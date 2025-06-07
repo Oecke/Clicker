@@ -28,7 +28,7 @@ const Level = () => {
 const SupreClickTimeOut = 100000;
 
 lvlValue.textContent = parseInt(localStorage.getItem('lvlValue'));
-CliCkButtonTimer.textContent = "You need " + lvl  + " ms to click again";
+CliCkButtonTimer.textContent = "You need " +  lvl  + " ms to click again";
 SuperClickButtonTimer.textContent = "You need " + SupreClickTimeOut + " ms to click again";
 
 clicksValue.textContent = clicks;
