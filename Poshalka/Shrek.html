@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #222;
+        }
+        .Shrek__container{
+            display: none;
+            width: 100%;
+            height: 100%;
+            
+            align-items: center;
+            justify-content: center;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            
+        }
+        .a{
+            font-size: 50px;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            margin-top: 20%;
+            cursor: pointer;
+        }
+        .nav-items__container {
+            background-color: black;
+            color: white;
+            font-size: 20px;
+            width: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;        
+        }
+        a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav-items__container">
+        <a href="/Clicker/clicker.html">Back</a>
+    </div>
+
+    <h1 class="a">Натисни та отримай кайф</h1>
+
+    <div class="Shrek__container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcdJnzKY6h_kpD0nMiL9aXupLHvlfKg00yzexsU3CCAKKvofeknfvE5G_VP65YI6qglAs&usqp=CAU" alt="Shrek" style="width: 100%; height: auto;">
+        <audio src="Shrek.mp3" id="sound"></audio>
+    </div>
+    <div class="stats">
+        <div>Clicks: <span id="clicks">0</span></div>
+        <div>Money: <span id="money">0</span></div>
+        <div>Level: <span id="level">1</span></div>
+        <div>Upgrades: <span id="upgrades">0</span></div>
+    </div>
+    
+    <script type="module">
+        import {addMoney} from "/Clicker/Values.js"
+        
+        document.querySelector('.a').addEventListener("click", function() {
+            document.querySelector(".a").style.display = "none";
+            document.querySelector(".Shrek__container").style.display = "flex";
+            document.getElementById("sound").play();
+            addMoney(500)
+
+            const clicksValue = document.querySelector("#clicks");
+            const moneyValue = document.querySelector("#money");
+
+            let clicks = parseInt(localStorage.getItem('clicks')) || 0;
+            let money = parseInt(localStorage.getItem('money')) || 0;
+
+            clicksValue.textContent = clicks;
+            moneyValue.textContent = money;
+        });
+    </script>
+
+
+
+</body>
+</html>
