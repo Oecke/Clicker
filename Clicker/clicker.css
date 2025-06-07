@@ -33,7 +33,7 @@ header {
     font-size: 1rem;
     border-radius: 10px;
     cursor: pointer;
-    text-shadow: 5px 5px 10px 5px  rgb(77, 72, 72);
+    text-shadow: 5px 5px 10px  rgb(77, 72, 72);
 }
 .stats {
     position: relative;
@@ -105,4 +105,10 @@ img{
 .Clickme{
     color: aquamarine;
     transition: 1s;
+}
+.SuperClicker__button{
+    color: rgb(79, 109, 121);
+    box-shadow: 5px 5px 10px rgb(77, 72, 72);
+    background-color: rgb(190, 252, 231);
+    border-radius: 10px;
 }
