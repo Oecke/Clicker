@@ -44,11 +44,15 @@ const updateValues = () => {
 };
 
 const upradeLevel = () => {
-  lvl = lvl - (clicks / 100);
-  localStorage.setItem('lvl', lvl.toString());
-  console.log(`Current Level: ${lvl}`);
-  return lvl; 
-}
+  if (lvl > 0) {
+    lvl = lvl - (clicks / 100);
+    localStorage.setItem('lvl', lvl.toString());
+    return lvl; 
+  } else {
+    lvl = 0;
+    return lvl;
+  }
+};
 
 
 
