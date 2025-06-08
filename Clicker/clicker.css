@@ -23,7 +23,6 @@ header {
 }
 
 .nav-items__container a {
-    
     height: 20px;
     background-color: #d8c6d5;
     color: black;
@@ -124,4 +123,7 @@ img{
 background-color: blueviolet;
     transform: rotate(10deg);
     color:white;
+}
+.nav-items__container a:hover{
+    background-image:linear-gradient(rgb(233, 188, 188),rgb(194, 253, 255));
 }
