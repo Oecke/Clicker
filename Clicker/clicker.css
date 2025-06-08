@@ -54,7 +54,6 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
 }
 .clicker__button {
     display: flex;
@@ -69,11 +68,7 @@ header {
     border-radius: 15px;
     box-shadow: 5px 5px #4a3b2f;
     cursor: pointer;
-
-    
 }
-
-
 .Shrek__button{
     position: absolute;
     bottom: 0px;
@@ -111,4 +106,22 @@ img{
     box-shadow: 5px 5px 10px rgb(77, 72, 72);
     background-color: rgb(190, 252, 231);
     border-radius: 10px;
+    transition: 2s;
+}
+.AutoClicker__button{
+    color: rgb(79, 109, 121);
+    box-shadow: 5px 5px 10px rgb(77, 72, 72);
+    background-color: rgb(190, 252, 231);
+    border-radius: 10px;   
+    transition: 2s;
+}
+.AutoClicker__button:hover{
+    background-color: blueviolet;
+    transform: rotate(10deg);
+    color: white;
+}
+.SuperClicker__button:hover{
+background-color: blueviolet;
+    transform: rotate(10deg);
+    color:white;
 }
