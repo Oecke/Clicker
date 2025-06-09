@@ -1,9 +1,9 @@
 import {addMoney} from "/Clicker/Values.js"
 
-const ShrekCost = document.querySelector("#ShrekCost");
-const ArnoldCost = document.querySelector("#ArnoldCost");
-const BetmanCost = document.querySelector("#BetmanCost");
-const SkebedeCost = document.querySelector("#SkebedeCost");
+const ShrekCost = document.querySelector("#ShrkBuy");
+const ArnoldCost = document.querySelector("#ArnoldBuy");
+const BetmanCost = document.querySelector("#BetmanBuy");
+const SkebedeCost = document.querySelector("#SkebedeBuy");
 
 ShrekCost.textContent = 1000;
 ArnoldCost.textContent = 2000;
@@ -33,6 +33,7 @@ const BuyShrek = () => {
         addMoney(-ShrekCost.textContent);
         localStorage.setItem('Shrek', 'true');
         alert("You have bought Shrek skin!");
+        window.location.reload();
     } else {
         alert("You don't have enough money to buy Shrek skin!");
     }
@@ -43,6 +44,7 @@ const BuyArnold = () => {
         addMoney(-ArnoldCost.textContent);
         localStorage.setItem('Arnold', 'true');
         alert("You have bought Arnold skin!");
+        window.location.reload();
     } else {
         alert("You don't have enough money to buy Arnold skin!");
     }
@@ -53,6 +55,7 @@ const BuyBetman = () => {
         addMoney(-BetmanCost.textContent);
         localStorage.setItem('Betman', 'true');
         alert("You have bought Betman skin!");
+        window.location.reload();
     } else {
         alert("You don't have enough money to buy Betman skin!");
     }
@@ -63,6 +66,7 @@ const BuySkebede = () => {
         addMoney(-SkebedeCost.textContent);
         localStorage.setItem('Skibide', 'true');
         alert("You have bought Skebede skin!");
+        window.location.reload();
     } else {
         alert("You don't have enough money to buy Skebede skin!");
     }
@@ -72,3 +76,5 @@ ShrekCost.onclick = BuyShrek;
 ArnoldCost.onclick = BuyArnold;
 BetmanCost.onclick = BuyBetman;
 SkebedeCost.onclick = BuySkebede;
+
+
