@@ -55,10 +55,24 @@ const HaveSkebede = () => {
         );
     }
 }
+localStorage.setItem('clickIcon', 'true')
+const SetGIF = () => {
+    if(localStorage.getItem('clickIcon') === 'true'){
+        return (
+            <div className="GIFbackground">
+                <img src="/Images/clickIcon.gif"/>
+            </div>
+        )
+    }
+}
+
 let TF = true;
+const CLickButton = document.querySelector(".clicker__button");
+
+const root = ReactDOM.createRoot(SkinsButton);
+const clickroot = ReactDOM.createRoot(CLickButton)
 
 SkinsContainer.addEventListener("click", () => {
-    const root = ReactDOM.createRoot(SkinsButton);
     if (TF === true) {
         root.render(<SkinsMenu />);
         TF = false;
@@ -67,6 +81,9 @@ SkinsContainer.addEventListener("click", () => {
         TF = true;
     }
 });
+clickroot.render(<SetGIF/>)
+
+
 const SetSkin = (skin) => {
     localStorage.setItem('CurrentSkin', skin);
     const CLickButton = document.querySelector(".clicker__button");
@@ -75,3 +92,5 @@ const SetSkin = (skin) => {
     CLickButton.style.backgroundPosition = "center";
     CLickButton.style.backgroundRepeat = "no-repeat";
 }
+
+
