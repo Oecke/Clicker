@@ -14,7 +14,12 @@ const App = () => {
   return (
     <div>
       <form className="login__form" onSubmit={handleSubmit}>
+        <header>
+          <div class="a">
+          <a href="/Clicker/clicker.html">back</a>
+          </div>
         <h1>Login</h1>
+        </header>
         <input type="text" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} required />
         <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} required />
         <button type="submit">Login</button>
