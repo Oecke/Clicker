@@ -1,10 +1,11 @@
 const SkinsButton = document.querySelector(".skins__button");
+const SkinsContainer = document.querySelector(".skins__container");
 
 const SkinsMenu = () => {
     return(
         <div className="skins-menu">
             <div className="Shrekskin__container">
-                <h2>Shrek skin!</h2>
+                <h2>Set skin!</h2>
                 <HaveShrek />
                 <HaveBetman />
                 <Havearnold />
@@ -54,19 +55,34 @@ const HaveSkebede = () => {
         );
     }
 }
+localStorage.setItem('clickIcon', 'true')
+const SetGIF = () => {
+    if(localStorage.getItem('clickIcon') === 'true'){
+        return (
+            <div className="GIFbackground">
+                <img src="/Images/clickIcon.gif"/>
+            </div>
+        )
+    }
+}
+
 let TF = true;
-SkinsButton.addEventListener("click", () => {
+const CLickButton = document.querySelector(".clicker__button");
+
+const root = ReactDOM.createRoot(SkinsButton);
+const clickroot = ReactDOM.createRoot(CLickButton)
+
+SkinsContainer.addEventListener("click", () => {
     if (TF === true) {
-        const root = ReactDOM.createRoot(SkinsButton);
         root.render(<SkinsMenu />);
         TF = false;
     } else {
-        const root = ReactDOM.createRoot(SkinsButton);
         root.render(null);
         TF = true;
     }
-}
-);
+});
+clickroot.render(<SetGIF/>)
+
 
 const SetSkin = (skin) => {
     localStorage.setItem('CurrentSkin', skin);
@@ -76,3 +92,5 @@ const SetSkin = (skin) => {
     CLickButton.style.backgroundPosition = "center";
     CLickButton.style.backgroundRepeat = "no-repeat";
 }
+
+

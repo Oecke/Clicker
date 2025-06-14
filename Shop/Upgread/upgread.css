@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Irish+Grover&family=Lobster&display=swap');
+body{
+    background-image:linear-gradient(rgb(190, 236, 238),rgb(214, 159, 200));
+    font-family: "Caveat", cursive;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+}
+.nav-items__container a {
+    height: 20px;
+    background-color: #d8c6d5;
+    color: black;
+    text-decoration: none;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    text-shadow: 5px 5px 10px  rgb(77, 72, 72);
+}
+.nav-items__container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    padding-right: 20px;
+}
+header {
+    height: 50px;
+    background-color: #8e735a;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+img{
+    width: 70px;
+    height: 70px;
+    box-shadow: 5px 5px 10px rgb(77, 72, 72);
+    border-radius: 50%;
+}
+button{
+    background-color: lightgrey;
+    border-radius: 10px;
+    color: rgb(128, 80, 80);
+    font-size: 17px;
+    transition: 2s;
+}
+button:hover{
+    transform: rotate(5deg);
+    background-color: lightsteelblue;
+    color: rgb(94, 38, 94);
+}
+.nav-items__container a:hover{
+    background-image:linear-gradient(rgb(233, 188, 188),rgb(194, 253, 255));
+}
+p:hover{
+    color: rgb(245, 131, 131);
+    font-size: 30px;
+}
+p{
+    transition: 5s;
+}
+h1:hover{
+    color: rgb(121, 121, 160);
+    font-size: 30px;
+}
+h1{
+    transition: 5s;
+}
+h2:hover{
+    color: rgb(80, 175, 85);
+    font-size: 30px;
+}
+h2{
+    transition: 5s;
+}

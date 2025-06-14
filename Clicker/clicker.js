@@ -80,7 +80,7 @@ const handleClick = () => {
 let autoClickerInterval = parseInt(localStorage.getItem('AutoClicker')) || 0;
 
 const AutoClicker = () => {
-  if (localStorage.getItem('AutoClicker') != '0') {
+  if (parseInt(localStorage.getItem('AutoClicker')) > 0){
     
     setInterval(() => {
         if (clicks >= 10) {

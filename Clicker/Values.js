@@ -26,6 +26,10 @@ if (!localStorage.getItem('AutoClick')) {
     localStorage.setItem('AutoClick', '0');
 }
 
+if(!localStorage.getItem('clickIcon')) {
+    localStorage.setItem('clickIcon', 'false')
+}
+
 export const addLevel = (amount) => {
     const currentLevel = parseInt(localStorage.getItem('lvlValue')) || 0;
     const newLevel = currentLevel + amount;
